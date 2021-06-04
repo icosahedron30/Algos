@@ -8,7 +8,7 @@
 #define pb push_back
 #define epb emplace_back
 using namespace std;
-
+//finding bridges in O(n+m) in undirected graph
 vector<int>t_in(200001),low(200001);
 vector<bool>used(200001);
 vector<vector<int> >g(200001);
