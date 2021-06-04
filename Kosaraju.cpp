@@ -8,7 +8,7 @@
 #define pb push_back
 #define epb emplace_back
 using namespace std;
-
+//finding SCC in directed graph
 vector<vector<int> >g(200001);
 vector<vector<int> >g_rev(200001);
 
