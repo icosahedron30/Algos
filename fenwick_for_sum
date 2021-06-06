@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+#define ll long long
+#define ull unsigned ll
+#define f first
+#define s second
+#define pii pair<int,int>
+#define pll pair<ll,ll>
+#define pb push_back
+#define epb emplace_back
+#define inf 1e9+1
+#define linf 1e18+1
+
+using namespace std;
+
+//fenwick is super-duper!!
+
+
+int NMAX=2000001;
+vector<int>a(NMAX);
+vector<int>fen(NMAX);
+
+int lbs(int ind){
+    return ind & -ind;
+}
+int n;
+void add(int pos,int addend){
+    while(pos<=n){
+        fen[pos]+=addend;
+        pos+=lbs(pos);
+    }
+}
+
+int sum(int pos){
+    int ans=0;
+    while(pos>0){
+        ans+=fen[pos];
+        pos-=lbs(pos);
+    }
+    return ans;
+}
+
+int query(int l,int r){
+    return sum(r)-sum(l-1);
+}
+
+void solve(){
+    cin>>n;
+    int q;cin>>q;
+    while(q--){
+        int ind;cin>>ind;
+        switch(ind){
+            case 1:int l,r;cin>>l>>r;cout<<query(l,r)<<"\n";break;
+            case 2:int pos,val;cin>>pos>>val;add(pos,val);break;
+            default:break;
+        }
+    }
+}
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    solve();
+}
