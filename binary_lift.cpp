@@ -19,7 +19,7 @@ int a[NMAX][20];
 void dfs(int v,int e){
     a[v][0]=e;
     for(int to:g[v]){
-        if(to!=e)dfs(to,v),dp[v]+=dp[to];
+        if(to!=e)dfs(to,v);
     }
 }
 
