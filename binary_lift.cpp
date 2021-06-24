@@ -45,10 +45,9 @@ int binary_lift(int v,int k){
 
 void solve(){
     cin>>n>>q;
-    for(int i=2;i<=n;i++){
-        int x;cin>>x;
-        g[x].pb(i);
-        g[i].pb(x);
+    for(int i=1;i<=n;i++){
+        int u,v;cin>>u>>v;
+        g[u].pb(v);g[v].pb(u);
     }
     prepare();
     while(q--){
