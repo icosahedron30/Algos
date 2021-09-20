@@ -15,7 +15,7 @@ const int NMAX=2e5+1;
 vector<ll>lp(NMAX,0);
 vector<ll>pr;
 
-void sieve(int n){
+void sieve(ll n){
     for(int i=2;i<=n;i++){
         if(lp[i]==0){
             pr.pb(i);
